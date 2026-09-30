@@ -1,0 +1,6 @@
+# Orca worktree hooks. Setup runs after a worktree is created, archive before it is removed.
+scripts:
+  setup: |
+    bin/worktree-setup
+  archive: |
+    docker compose down --remove-orphans

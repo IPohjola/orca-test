@@ -1,0 +1,7 @@
+<%# Navigation is data. Item contract: docs/conventions/frontend/navigation.md. %>
+<header class="site-header">
+  <nav class="site-nav">
+    <%= link_to "Harbor", root_path, class: "site-brand" %>
+    <%= button_to t("nav.sign_out"), session_path, method: :delete, class: "site-nav-signout" %>
+  </nav>
+</header>

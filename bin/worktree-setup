@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+# Orca worktree setup hook (orca.yaml). Gives this checkout its own host port and
+# databases so it runs beside the other worktrees. Idempotent.
+set -euo pipefail
+cd "$(dirname "$0")/.."
+
+[ -f .env ] || cp .env.example .env
+
+used_ports=$(git worktree list --porcelain | awk '/^worktree /{print $2}' | while read -r dir; do
+  [ "$dir" = "$PWD" ] && continue
+  grep -hs '^PORT=' "$dir/.env" | cut -d= -f2
+done)
+
+port=3100
+while printf '%s\n' "$used_ports" | grep -qx "$port" || lsof -nP -iTCP:"$port" -sTCP:LISTEN >/dev/null 2>&1; do
+  port=$((port + 1))
+done
+
+sed -i.bak "s/^PORT=.*/PORT=$port/" .env && rm -f .env.bak
+echo "PORT=$port"
+
+docker compose build --quiet
+docker compose run --rm web bin/rails db:prepare db:seed

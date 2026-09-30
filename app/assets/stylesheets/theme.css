@@ -1,0 +1,111 @@
+
+:root {
+  /* ===== PALETTE ===== number tracks lightness; higher is lighter */
+
+  --palette-neutral-100: #222;
+  --palette-neutral-300: #555;
+  --palette-neutral-400: #666;
+  --palette-neutral-600: #a0a0a0;
+  --palette-neutral-800: #e5e5e5;
+  --palette-neutral-900: #f0f0f0;
+  --palette-neutral-950: #f9f9f9;
+  --palette-neutral-1000: #fefefe;
+
+  --palette-accent-500: #1f6f8b;
+  --palette-accent-contrast-500: #145a71;
+  --palette-accent-contrast-900: #e6f2f6;
+
+  --palette-danger-500: #a02020;
+  --palette-success-500: #4caf50;
+  --palette-warning-500: #d97706;
+
+  /* ===== SEMANTIC ===== */
+
+  --color-bg-page: var(--palette-neutral-950);
+  --color-bg-surface: var(--palette-neutral-1000);
+  --color-bg-inset: var(--palette-neutral-900);
+  --color-bg-shaded: var(--palette-neutral-800);
+  --color-bg-dark: var(--palette-neutral-100);
+  --color-bg-btn-hover: var(--palette-neutral-300);
+
+  --color-text-primary: var(--palette-neutral-100);
+  --color-text-secondary: var(--palette-neutral-300);
+  --color-text-muted: var(--palette-neutral-400);
+  --color-text-disabled: var(--palette-neutral-600);
+  --color-text-white: var(--palette-neutral-1000);
+
+  --color-accent: var(--palette-accent-500);
+  --color-link: var(--palette-accent-500);
+
+  /* state + property, one token per pair */
+  --color-hover-text: var(--palette-accent-contrast-500);
+  --color-hover-border: var(--palette-neutral-600);
+  --color-hover-bg: var(--palette-accent-contrast-900);
+  --color-hover-border-strong: var(--palette-accent-contrast-500);
+  --color-selected-bg: var(--palette-accent-contrast-500);
+  --color-selected-text: var(--color-text-white);
+
+  --color-border: var(--palette-neutral-800);
+  --color-border-focus: var(--palette-neutral-600);
+  --color-border-strong: var(--palette-neutral-300);
+  --color-border-print: var(--palette-neutral-100);
+
+  --color-success: var(--palette-success-500);
+  --color-error: var(--palette-danger-500);
+  --color-warning: var(--palette-warning-500);
+
+  --transition-state: 0.1s ease;
+  --transition-motion: 0.2s ease;
+
+  /* Typography — only weights the font actually loads */
+  --font-family-primary: system-ui, sans-serif;
+  --font-size-small: 0.8rem;
+  --font-size-base: 1rem;
+  --font-size-large: 1.2rem;
+  --font-size-xlarge: 1.4rem;
+  --font-size-2xlarge: 2rem;
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-bold: 600;
+  --font-weight-xbold: 700;
+
+  /* Spacing — 4-point grid */
+  --spacing-xs: 0.25rem;
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 2rem;
+  --spacing-xl: 3rem;
+  --spacing-2xl: 4rem;
+
+  /* Layout */
+  --header-height: 4.5rem;
+  --content-width: 60%;
+  --content-width-wide: 90%;
+  --sidebar-width: 22rem;
+
+  /* Z-index ladder — stack by tier */
+  --z-decoration: 1;
+  --z-chrome: 10;
+  --z-floating: 20;
+  --z-dropdown: 30;
+  --z-toast: 40;
+  --z-overlay: 50;
+  --z-header: 60;
+
+  /* Borders */
+  --border-width-thin: 1px;
+  --border-width-medium: 2px;
+  --border-width-thick: 3px;
+  --border-radius: 0.15rem;
+  --border-radius-button: 0.1rem;
+
+  /* Shadows — by elevation */
+  --shadow-raised: 0 1px 2px rgba(0, 0, 0, 0.04);
+  --shadow-panel: 0 3px 13px rgba(0, 0, 0, 0.08);
+  --shadow-overlay: 0 2px 8px rgba(0, 0, 0, 0.15);
+
+  /* ===== COMPONENT ===== */
+  --spacing-form: 0.75rem;
+  --input-height: 2.75rem;
+  --input-text-weight: var(--font-weight-normal);
+}

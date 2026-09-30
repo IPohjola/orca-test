@@ -1,0 +1,27 @@
+{
+  "hooks": {
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "\"$CLAUDE_PROJECT_DIR/.claude/scripts/reconcile-docs.sh\" baseline",
+            "timeout": 10
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "\"$CLAUDE_PROJECT_DIR/.claude/scripts/reconcile-docs.sh\"",
+            "timeout": 15,
+            "statusMessage": "Checking docs against changes..."
+          }
+        ]
+      }
+    ]
+  }
+}

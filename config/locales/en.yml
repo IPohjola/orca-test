@@ -1,0 +1,51 @@
+en:
+  activerecord:
+    attributes:
+      user:
+        email_address: Email address
+        password: Password
+        role: Role
+        role/customer_custodian: Custodian
+        role/customer: Customer
+        role/instructor: Instructor
+        role/admin: Admin
+  authorization:
+    denied: You are not allowed to do that.
+  flash:
+    close: Close
+  nav:
+    sign_out: Sign out
+  home:
+    index:
+      title: Harbor
+      signed_in_as: "Signed in as %{email} (%{role})."
+  sessions:
+    new:
+      title: Sign in
+      email_address: Email address
+      password: Password
+      submit: Sign in
+      forgot_password: Forgot password?
+    create:
+      invalid: Try another email address or password.
+      rate_limited: Try again later.
+  passwords:
+    new:
+      title: Reset password
+      email_address: Email address
+      submit: Email reset instructions
+    edit:
+      title: Choose a new password
+      password: New password
+      password_confirmation: Confirm password
+      submit: Save
+      invalid_token: Password reset link is invalid or has expired.
+    create:
+      sent: Password reset instructions sent (if user with that email address exists).
+      rate_limited: Try again later.
+    update:
+      reset: Password has been reset.
+      mismatch: Passwords did not match.
+  passwords_mailer:
+    reset:
+      subject: Reset your password

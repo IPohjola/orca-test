@@ -1,0 +1,22 @@
+<h1 class="page-title"><%= t(".title") %></h1>
+
+<%= render "layouts/page_section" do %>
+  <%= form_with url: session_path do |form| %>
+    <div class="inline-field-group inline-field-group--equal inline-field-group--stack">
+      <div class="inline-field">
+        <%= form.label :email_address, t("sessions.new.email_address"), class: "required-field" %>
+        <%= form.email_field :email_address, autofocus: true, autocomplete: "username", value: params[:email_address] %>
+      </div>
+    </div>
+    <div class="inline-field-group inline-field-group--equal inline-field-group--stack">
+      <div class="inline-field">
+        <%= form.label :password, t("sessions.new.password"), class: "required-field" %>
+        <%= form.password_field :password, autocomplete: "current-password", maxlength: 72 %>
+      </div>
+    </div>
+    <div class="action-group action-group--stack">
+      <%= form.submit t("sessions.new.submit"), data: { disable_with: t("sessions.new.submit") } %>
+      <%= link_to t("sessions.new.forgot_password"), new_password_path %>
+    </div>
+  <% end %>
+<% end %>

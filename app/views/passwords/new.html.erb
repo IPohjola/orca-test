@@ -1,0 +1,15 @@
+<h1 class="page-title"><%= t(".title") %></h1>
+
+<%= render "layouts/page_section" do %>
+  <%= form_with url: passwords_path do |form| %>
+    <div class="inline-field-group inline-field-group--equal inline-field-group--stack">
+      <div class="inline-field">
+        <%= form.label :email_address, t("passwords.new.email_address"), class: "required-field" %>
+        <%= form.email_field :email_address, autofocus: true, autocomplete: "username" %>
+      </div>
+    </div>
+    <div class="action-group action-group--stack">
+      <%= form.submit t("passwords.new.submit"), data: { disable_with: t("passwords.new.submit") } %>
+    </div>
+  <% end %>
+<% end %>

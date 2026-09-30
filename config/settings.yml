@@ -1,0 +1,36 @@
+# Application values that differ per environment. Read once in
+# config/application.rb via config_for; reached as Rails.configuration.settings.<key>.
+# `shared` supplies defaults; an environment block overrides only what it names.
+# Keys flat. Values literal.
+#
+# Not here: secrets (ENV, from the secret store), runtime facts infra owns
+# (DATABASE_URL, RAILS_ENV), framework config (config/environments/*.rb).
+
+shared:
+  mailer_host: localhost:3000
+  mail_from: no-reply@example.com
+  support_email: dev@example.com
+  error_report_email: dev@example.com
+
+# Development reads .env so each developer can redirect mail without committing an address.
+<% developer_email = ENV.fetch("DEVELOPER_EMAIL", "dev@example.com") %>
+development:
+  support_email: <%= developer_email %>
+  error_report_email: <%= developer_email %>
+
+# Fixed, not machine-dependent, so specs asserting a recipient behave the same everywhere.
+test:
+  mailer_host: www.example.com
+  support_email: test@example.com
+  error_report_email: test@example.com
+
+staging:
+  mailer_host: <%= ENV.fetch("APP_HOST", "localhost:3000") %>
+  support_email: staging@example.com
+  error_report_email: staging@example.com
+
+production:
+  mailer_host: app.example.com
+  mail_from: no-reply@example.com
+  support_email: support@example.com
+  error_report_email: errors@example.com

@@ -1,0 +1,5 @@
+<h1 class="page-title"><%= t(".title") %></h1>
+
+<%= render "layouts/page_section" do %>
+  <p><%= t("home.index.signed_in_as", email: Current.user.email_address, role: User.human_attribute_name("role.#{Current.user.role}")) %></p>
+<% end %>

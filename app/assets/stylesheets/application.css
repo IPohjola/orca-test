@@ -1,0 +1,20 @@
+
+@layer vendor;
+
+@import url("theme.css");
+
+@import url("common/layout.css");
+@import url("common/utilities.css");
+@import url("common/buttons.css");
+@import url("common/forms.css");
+@import url("common/tables.css");
+@import url("common/alerts.css");
+@import url("common/dialogs.css");
+
+@import url("header.css");
+
+/* per-controller sheets: one @import each, added when the sheet is created */
+
+@import url("print.css");
+
+/* vendor: @import url("<lib>.css") layer(vendor); */

@@ -1,0 +1,14 @@
+# Development image. Source is bind-mounted by compose.yaml; gems live in a named volume.
+FROM ruby:3.4.11
+
+RUN apt-get update -qq && \
+    apt-get install -y --no-install-recommends build-essential git libyaml-dev pkg-config && \
+    rm -rf /var/lib/apt/lists/*
+
+WORKDIR /app
+
+COPY Gemfile Gemfile.lock ./
+RUN bundle install
+
+EXPOSE 3000
+CMD ["bin/rails", "server", "-b", "0.0.0.0", "-p", "3000"]
